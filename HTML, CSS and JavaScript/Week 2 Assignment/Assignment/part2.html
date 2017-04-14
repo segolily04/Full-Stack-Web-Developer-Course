@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Color Guessing Game - Part 2</title>
+        <script>
+            
+            //set up global variable
+            var target, response;
+            var finished = false;
+            var count = 0;
+            var colors_array =["DarkGoldenRod", "Coral", "Cyan", "YellowGreen", "SkyBlue", "Violet","PaleVioletRed", "GreenYellow", "Magenta", "Navy"];
+
+            //Beginning of do_game function
+            function do_game(){
+                colors_array = colors_array.sort();
+                
+                //Pick a color randomly 
+                var random_number = Math.floor(Math.random() * (colors_array.length - 1));
+                target = colors_array[random_number];
+                alert(target);
+
+                //Prompt user loop to guess the color until correct
+                do{
+                    //Prompt user to guess the color
+                    response = prompt("Guess what color I'm thinking of. Pick from the colors below. \n\n" + colors_array.join(", "));
+                    
+                    //Increment the number of guesses
+                    count++;
+                    
+                    //Check if guess is correct 
+                    finished = check_guess();
+
+                }while(!finished);
+            }
+
+            //Check to see if the response matches the target
+            function check_guess(){
+                //If the response doesn't exist in the array 
+                if(colors_array.indexOf(response) == -1){
+                    alert("Sorry, I don't recognize the color entered. Please try again.");
+                    return false;
+                }  
+                
+                //If the response is alphabetically higher
+                if(response > target){
+                    alert("Your color is alphabetically higher than my color.");
+                    return false;
+                }
+                
+                //If the response is alphabetically lower
+                if(response < target){
+                    alert("Your color is alphabetically lower than my color.");
+                    return false;
+                } 
+                
+                //Change the background color to the target color (if they've gotten this far, they've won.)
+                myBody=document.getElementsByTagName("body")[0];
+                myBody.style.background=target;
+
+                //If the response is correct 
+                if (response == target) {
+                    setTimeout(function(){
+                        alert("Yay!! You guessed the right color in " + count + " attempts. \n\n See the color displayed in the background.");
+                    }, 1);
+
+                    return true;
+                }
+            }
+        </script>
+    </head>
+
+    <body onload="do_game()">  
+    </body>
+</html>

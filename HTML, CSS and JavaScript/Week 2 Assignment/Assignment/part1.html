@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Color Guessing Game - Part 1</title>
+        <script>
+            
+            //set up global variable
+            var target, response;
+            var finished = false;
+            var colors_array =["DarkGoldenRod", "Coral", "Cyan", "YellowGreen", "SkyBlue", "Violet","PaleVioletRed", "GreenYellow", "Magenta", "Navy"];
+
+            //Beginning of do_game function
+            function do_game(){
+                colors_array = colors_array.sort();
+                
+                //Pick a color randomly 
+                var random_number = Math.floor(Math.random() * (colors_array.length - 1));
+                target = colors_array[random_number];
+                alert(target);
+
+                do{
+                    response = prompt("Guess what color I'm thinking of. Pick from the colors below. \n\n" + colors_array.join(", "));
+
+                    if(colors_array.indexOf(response) == -1){
+                        alert("Sorry. I don't recognize the color entered. Please try again.");
+                    } else if(response > target){
+                        alert("Your color is alphabetically higher than my color.");
+                    } else if(response < target){
+                        alert("Your color is alphabetically lower than my color.");
+                    } else {
+                        alert("Yay!! You guessed the right color!!");
+                        finished = true;
+                    }
+
+                }while(!finished);
+            }
+            
+        </script>
+    </head>
+
+    <body onload="do_game()">
+    </body>
+</html>

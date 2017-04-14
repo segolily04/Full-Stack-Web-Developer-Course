@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Matching Game - Part 3</title>
+        
+        <!-- Stylings -->
+        <style>
+            img{position: absolute}
+            div{position: absolute; width: 500px; height: 500px}
+            #rightSide{left: 500px; border-left: 1px solid black}
+        </style>
+
+    </head>
+
+    <body onload="generateFaces()">
+        <!-- Title and instructions -->
+        <h1>Matching Game</h1>
+        <p>Click on the extra smiling face on the left.</p>
+
+        <!-- Left side of the board -->
+        <div id="leftSide">
+
+        </div>
+
+        <!-- Right side of the board -->
+        <div id="rightSide">
+
+        </div>
+
+        
+        <!-- JavaScript to run game -->
+        <script>
+            //Set up variables 
+            var numberOfFaces = 5;
+            var theLeftSide = document.getElementById("leftSide");
+            var theRightSide = document.getElementById("rightSide");
+
+            //Geenrate the faces on the left side
+            function generateFaces(){
+
+                //Loop to create and place images
+                for(var i = 0; i < numberOfFaces; i++){
+
+                    /* 1. An image is created using createElement() */
+                    var this_img = document.createElement("img");
+
+                     /* 2. Image attribute is set */
+                     this_img.src = "smile.png";
+
+                     /* 3. Set the image top position */
+                     var random_num = Math.random() * 400;
+                     random_num = Math.floor(random_num);
+
+                     this_img.style.top = random_num + "px";
+
+                     /* 4. Set the image left position */
+                     random_num = Math.random() * 400;
+                     random_num = Math.floor(random_num);
+
+                     this_img.style.left = random_num + "px";
+
+                     /* 5. Add the newly created image to the leftSide using appendChild() */
+                     theLeftSide.appendChild(this_img);
+                }
+
+                //Clone the left side div
+                var leftSideImages = theLeftSide.cloneNode(true);
+
+                //Delete the last child of leftSideImages
+                leftSideImages.removeChild(leftSideImages.lastChild);
+
+                //Add leftSideImages to the rightSide
+                theRightSide.appendChild(leftSideImages);
+            }
+        </script>
+    </body>
+</html>

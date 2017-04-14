@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dating Website Form</title>
+</head>
+
+
+<body>
+    <form action="https://ihome.ust.hk/~rossiter/cgi-bin/show_everything.php" method="post" enctype="multipart/form-data">
+        <h1>Please Enter Your Details For Our Dating Website!</h1>
+
+            <fieldset>
+                <legend>Your Face</legend>
+                <div>
+                    <label for="imagePicker">Your image:</label>
+                    <input type="file" name="imagePicker" id="imagePicker" value="imagePicker" required>
+                </div>
+
+                <div>
+                    <label for="userImage">Image preview:</label>
+                </div>
+
+            </fieldset> 
+
+            <fieldset>
+                <legend>Your General Details</legend>
+
+                <div>
+                    <label for="userName">Name:</label>
+                    <input type="text" name="userName" id="userName" required>
+                </div>
+
+                <div>
+                    <label for="userGender">Gender:</label>
+                    <input type="radio" name="userGender" id="userGender" value="Male" required> Male
+                    <input type="radio" name="userGender" id="userGender" value="Female" required> Female
+                </div>
+
+                <div>
+                    <label for="userAge">Age:</label>
+                    <input type="number" name="userAge" id="userAge" required>
+                </div>
+
+                <div>
+                    <label for="userDateofBirth">Date of birth:</label>
+                    <input type="date" name="userDateofBirth" id="userDateofBirth" >
+                </div>
+
+                <div>
+                    <label for="userFavoriteColor">Favorite Color:</label>
+                    <input type="color" name="userFavoriteColor" id="userFavoriteColor" >
+                </div>
+
+                <div>
+                    <label for="userCountry">Which country:</label>
+                    <select name="userCountry" id="userCountry" >
+                        <option value="ns">No selection</option>
+                        <option value="usa">USA</option>
+                        <option value="br">Brazil</option>
+                        <option value="es">Spain</option>
+                        <option value="za">South Africa</option>
+                        <option value="in">India</option>
+                    </select>
+                </div>
+            </fieldset> 
+
+            <fieldset>
+                <legend>Your Indicators</legend>
+                <div>
+                    <label for="userHeight">Height:</label>
+                    Short <input type="range" min="0" max="100" name="userHeight" id="userHeight" step="5"> Tall
+                </div>
+
+                <div>
+                    <label for="userSalary">Salary:</label>
+                    Poor <input type="range" min="0" max="100" name="userSalary" id="userSalary" step="5"> Rich
+                </div>
+            </fieldset> 
+
+            <fieldset>
+                <legend>Your Contact Information</legend>
+                <div>
+                    <label for="userEmail">Email:</label>
+                    <input type="email" name="userEmail" id="userEmail" required>
+                </div>
+
+                <div>
+                    <label for="userPhone">Phone:</label>
+                    <input type="tel" name="userPhone" id="userPhone" >
+                </div>
+
+                <div>
+                    <label for="userAddress">Address:</label>
+                    <input type="textarea" name="userAddress" id="userAddress" >
+                </div>
+
+                <div>
+                    <label for="userContactMethod">Method to contact you:</label>
+                    <input type="checkbox" name="userContactMethod" id="userContactMethod" value="email" required> Email
+                    <input type="checkbox" name="userContactMethod" id="userContactMethod" value="whatsapp" required> Whatsapp
+                    <input type="checkbox" name="userContactMethod" id="userContactMethod" value="inAppChat" required> In-app chat
+                </div>
+            </fieldset> 
+
+            <input type="submit" name="submit" id="submit" value="Submit">
+    </form>
+</body>
+
+</html>
