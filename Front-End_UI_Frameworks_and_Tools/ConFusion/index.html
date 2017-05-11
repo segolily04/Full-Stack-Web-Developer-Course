@@ -14,10 +14,10 @@
     <title>Ristorante Con Fusion</title>
 
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="css/mystyles.css" rel="stylesheet">
-    <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/bootstrap-social.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -65,7 +65,7 @@
                     <li><a href="contactus.html"><i class="fa fa-envelope-o"></i>Contact</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a data-toggle="modal" data-target="#loginModal">
+                    <li><a id="loginButton">
                     <span class="glyphicon glyphicon-log-in"></span> Login</a>
                     </li>
                 </ul>
@@ -111,14 +111,13 @@
                 </div>  
                 <div class="col-xs-12 col-sm-2">
                     <p style="padding:20px; margin-top:40px;"></p>
-                    <a href="#reservation" type="button" class="btn btn-default btn-warning btn-block" data-toggle="modal" 
-                    data-target="#reservationModal">Reserve Table</a>
+                    <button id="reserveTableButton" type="button" class="btn btn-default btn-warning btn-block">Reserve Table</button>
                 </div>              
             </div>
         </div>
     </header>
 
-    <div id="reservationModal" class="modal fade" role="dialog">
+    <div id="reserveTableModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
         <!-- Modal content-->
         <div class="modal-content">
@@ -368,9 +367,9 @@
     </footer>
 
  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
     <script>
         $(document).ready(function(){
@@ -380,6 +379,20 @@
             });
                         $("#carousel-play").click(function(){
                 $("#mycarousel").carousel('cycle');
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function(){
+            $("#loginButton").click(function(){
+                $("#loginModal").modal('show');
+            });
+        });
+
+        $(document).ready(function(){
+            $("#reserveTableButton").click(function(){
+                $("#reserveTableModal").modal('show');
             });
         });
     </script>
