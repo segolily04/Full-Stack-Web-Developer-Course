@@ -1,3 +1,6 @@
+// The following code was written by Patricia Rodriguez for 
+// Coursera Front-End JavaScript Frameworks - AngularJS class
+
 'use strict';
 angular.module('confusionApp', [])
 

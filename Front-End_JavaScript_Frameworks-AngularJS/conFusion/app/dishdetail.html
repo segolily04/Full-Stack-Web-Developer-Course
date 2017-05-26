@@ -66,13 +66,17 @@
 						<!--Task 3: Here you include the code to show the live preview of the comment
 						            The comment should be shown only when the form contains valid
 						            information and is not pristine-->
-                    <span ng-show="commentForm.feedback.$valid && !commentForm.feedback.$pristine">
-                        <blockquote>
-                            <p>{{formData.rating}} Stars</p>
-                            <p>{{formData.comment}}</p>
-                            <footer>{{formData.author}}, {{formData.date | date}}</footer>
-                        </blockquote>
+                <ul class="list-unstyled">
+                    <span ng-show="commentForm.$valid && !commentForm.$pristine">
+                        <li>
+                            <blockquote>
+                                <p>{{formData.rating}} Stars</p>
+                                <p>{{formData.comment}}</p>
+                                <footer>{{formData.author}}, {{formData.date | date}}</footer>
+                            </blockquote>
+                        </li>
                     </span>
+                </ul>
                 <form class="form-horizontal" name="commentForm"
                 		ng-submit="submitComment(commentForm)" novalidate>
 					<!--Task 1: Design the form to submit the comments-->
