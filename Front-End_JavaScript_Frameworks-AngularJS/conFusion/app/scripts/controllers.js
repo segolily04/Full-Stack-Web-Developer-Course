@@ -99,4 +99,27 @@ angular.module('confusionApp')
       };
   }])
 
+  .controller('IndexController', ['$scope', '$stateParams', 'menuFactory', 'corporateFactory', function($scope, $stateParams, menuFactory, corporateFactory) {
+          //Get featured dish
+          var dish = menuFactory.getDish(0);
+          $scope.dish = dish;
+
+            //Get promotion
+           var promotion = menuFactory.getPromotion(0);
+           $scope.promotion = promotion;
+
+           //Get spotlight leader for the homepage
+            var leader = corporateFactory.getLeader(0) ;
+            $scope.leader = leader;
+
+  }])
+
+  .controller('AboutController', ['$scope', '$stateParams', 'corporateFactory', function($scope, $stateParams, corporateFactory) {
+            
+            //Get full list of leadership
+            $scope.leadership = corporateFactory.getLeaders();
+            
+            
+  }])
+
 ;
