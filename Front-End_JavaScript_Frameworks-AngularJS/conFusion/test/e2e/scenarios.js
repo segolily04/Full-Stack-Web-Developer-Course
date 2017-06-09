@@ -10,7 +10,7 @@ describe('conFusion App E2E Testing', function() {
 
     describe('index', function() {
         beforeEach(function() {
-            browser.get('index.html#/');
+            browser.get('index.html#!/');
         });
 
         it('should have a title', function() {
@@ -21,7 +21,7 @@ describe('conFusion App E2E Testing', function() {
 
     describe('menu 0 item', function() {
         beforeEach(function() {
-            browser.get('index.html#/menu/0');
+            browser.get('index.html#!/menu/0');
         });
 
         it('should have a name', function() {
@@ -32,14 +32,14 @@ describe('conFusion App E2E Testing', function() {
 
         it('should show the number of comments as', function() {
             expect(element.all(by.repeater('comment in dish.comments'))
-                .count()).toEqual(5);
+                .count()).toEqual(6);
 
         });
 
         it('should show the first comment author as', function() {
             element(by.model('sortByValue')).sendKeys('author');
                 expect(element.all(by.repeater('comment in dish.comments'))
-                .count()).toEqual(5);
+                .count()).toEqual(6);
             var author = element.all(by.repeater('comment in dish.comments'))
                         .first().element(by.binding('comment.author'));
 
